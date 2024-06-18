@@ -1,0 +1,43 @@
+﻿@model CreateRoomDto
+@{
+    ViewData["Title"] = "AddRoom";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Room Number</label>
+    <input type="text" asp-for="RoomNumber" class="form-control" />
+    <span asp-validation-for="RoomNumber" class="text-danger"></span>
+    <br />
+    <label>Room Title</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+    <br />
+    <label>Cover Image Url</label>
+    <input type="text" asp-for="RoomCoverImage" class="form-control" />
+    <span asp-validation-for="RoomCoverImage" class="text-danger"></span>
+    <br />
+    <label>Price</label>
+    <input type="text" asp-for="Price" class="form-control" />
+    <span asp-validation-for="Price" class="text-danger"></span>
+    <br />
+    <label>Bed Count</label>
+    <input type="number" asp-for="BedCount" class="form-control" />
+    <span asp-validation-for="BedCount" class="text-danger"></span>
+    <br />
+    <label>Bath Count</label>
+    <input type="number" asp-for="BathCount" class="form-control" />
+    <span asp-validation-for="BathCount" class="text-danger"></span>
+    <br />
+    <label>Wifi</label>
+    <input type="text" asp-for="Wifi" class="form-control" />
+    <span asp-validation-for="Wifi" class="text-danger"></span>
+    <br />
+    <label>Description</label>
+    <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+    <span asp-validation-for="Description" class="text-danger"></span>
+    <br />
+    <button class="btn btn-primary">Add Room</button>
+    <a href="/Room/Index" class="btn btn-danger">Cancel</a>
+</form>
+

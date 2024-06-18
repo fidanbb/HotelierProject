@@ -30,6 +30,10 @@ namespace HotelierProject.WebApi.Controllers
 
         public async Task<IActionResult> AddSubscribe(CreateSubscribeDto createSubscribeDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             var value = _mapper.Map<Subscribe>(createSubscribeDto);
 
             await _subscribeService.TInsert(value);
@@ -51,6 +55,10 @@ namespace HotelierProject.WebApi.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateSubscribe(UpdateSubscribeDto updateSubscribeDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             var value = _mapper.Map<Subscribe>(updateSubscribeDto);
 
             await _subscribeService.TUpdate(value);

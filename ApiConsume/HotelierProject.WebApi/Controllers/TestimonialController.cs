@@ -30,6 +30,10 @@ namespace HotelierProject.WebApi.Controllers
 
         public async Task<IActionResult> AddTestimonial(CreateTestimonialDto createTestimonialDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             var value = _mapper.Map<Testimonial>(createTestimonialDto);
 
             await _testimonialService.TInsert(value);
@@ -51,6 +55,10 @@ namespace HotelierProject.WebApi.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateTestimonial(UpdateTestimonialDto updateTestimonialDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             var value = _mapper.Map<Testimonial>(updateTestimonialDto);
 
             await _testimonialService.TUpdate(value);

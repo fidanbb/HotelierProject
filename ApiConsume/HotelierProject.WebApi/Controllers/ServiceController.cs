@@ -30,6 +30,10 @@ namespace HotelierProject.WebApi.Controllers
 
         public async Task<IActionResult> AddService(CreateServiceDto createServiceDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             var value = _mapper.Map<Service>(createServiceDto);
 
             await _serviceService.TInsert(value);
@@ -51,6 +55,10 @@ namespace HotelierProject.WebApi.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateService(UpdateServiceDto updateServiceDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             var value = _mapper.Map<Service>(updateServiceDto);
 
             await _serviceService.TUpdate(value);

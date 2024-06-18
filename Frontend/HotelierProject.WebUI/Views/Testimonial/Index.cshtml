@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Image</th>
+        <th>Name Surname</th>
+        <th>Title</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.TestimonialID</th>
+            <th><img src="@item.Image" style="width:110px; height:80px " /></th>
+            <td>@item.Name</td>
+            <td>@item.Title</td>
+            <td>
+                <a href="/Testimonial/DeleteTestimonial/@item.TestimonialID" class="btn mb-1 btn-rounded btn-outline-danger"
+                   onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+            </td>
+            <td><a href="/Testimonial/UpdateTestimonial/@item.TestimonialID" class="btn mb-1 btn-rounded btn-outline-success">Update</a></td>
+            
+        </tr>
+    }
+</table>
+<a href="/Testimonial/AddTestimonial/" class="btn mb-1 btn-rounded btn-outline-info">Add New Testimonial</a>
+

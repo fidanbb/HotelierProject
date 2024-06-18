@@ -1,0 +1,40 @@
+﻿@model List<ResultSubscribeDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+<div class="card-title">
+    <h4>Subscribe List</h4>
+
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>#</th>
+            <th>Mail</th>
+            <th>Delete</th>
+    
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <th>@count</th>
+                <td>@item.Mail</td>
+
+                <td>
+                    <a href="/Subscribe/DeleteSubscribe/@item.SubscribeID" class="btn mb-1 btn-rounded btn-outline-danger"
+                       onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+                </td>
+               
+
+            </tr>
+        }
+    </table>
+  
+</div>

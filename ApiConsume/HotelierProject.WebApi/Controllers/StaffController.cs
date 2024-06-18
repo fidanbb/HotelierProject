@@ -30,6 +30,10 @@ namespace HotelierProject.WebApi.Controllers
 
         public async Task<IActionResult> AddStaff(CreateStaffDto createStaffDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             var value = _mapper.Map<Staff>(createStaffDto);
 
             await _staffService.TInsert(value);
@@ -51,6 +55,10 @@ namespace HotelierProject.WebApi.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateStaff(UpdateStaffDto updateStaffDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             var value = _mapper.Map<Staff>(updateStaffDto);
 
             await _staffService.TUpdate(value);
