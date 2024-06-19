@@ -18,6 +18,8 @@
         @await Component.InvokeAsync("_NavbarComponentPartial")
 
          @RenderBody()
+        @await Html.PartialAsync("/Views/Default/_SubscribePartial.cshtml")
+
 
         @await Component.InvokeAsync("_FooterComponentPartial")
      

@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+@await Component.InvokeAsync("_BookingCoverComponentPartial")
+
+@await Component.InvokeAsync("_RevservationComponentPartial")
+
+
+@await Html.PartialAsync("/Views/Booking/AddBooking.cshtml")
