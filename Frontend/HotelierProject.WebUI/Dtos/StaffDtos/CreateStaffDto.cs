@@ -19,5 +19,7 @@ namespace HotelierProject.WebUI.Dtos.StaffDtos
         public string SocialMedia2 { get; set; }
         [Required]
         public string SocialMedia3 { get; set; }
+        [Required]
+        public string Image { get; set; }
     }
 }

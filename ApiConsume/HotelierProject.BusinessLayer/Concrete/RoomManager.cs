@@ -38,7 +38,12 @@ namespace HotelierProject.BusinessLayer.Concrete
 			await _roomDal.Insert(t);
 		}
 
-		public async Task TUpdate(Room t)
+        public async Task<List<Room>> TTakeFirstThreeRooms()
+        {
+           return await _roomDal.TakeFirstThreeRooms();
+        }
+
+        public async Task TUpdate(Room t)
 		{
 			await _roomDal.Update(t);
 		}

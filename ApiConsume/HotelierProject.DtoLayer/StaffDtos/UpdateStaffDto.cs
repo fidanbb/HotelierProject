@@ -11,6 +11,8 @@ namespace HotelierProject.DtoLayer.StaffDtos
     {
         public int StaffID { get; set; }
         [Required]
+        public string Image { get; set; }
+        [Required]
         public string Name { get; set; }
         [Required]
         public string Title { get; set; }

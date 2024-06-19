@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace HotelierProject.DataAccessLayer.Abstract
 {
-	public interface IRoomDal:IGenericDal<Room>
-	{
-		Task<List<Room>> TakeFirstThreeRooms();
-	}
+    public interface IAboutDal:IGenericDal<About>
+    {
+    }
 }

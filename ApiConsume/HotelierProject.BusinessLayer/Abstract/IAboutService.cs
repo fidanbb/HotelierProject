@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelierProject.DataAccessLayer.Abstract
+namespace HotelierProject.BusinessLayer.Abstract
 {
-	public interface IRoomDal:IGenericDal<Room>
-	{
-		Task<List<Room>> TakeFirstThreeRooms();
-	}
+    public interface IAboutService:IGenericService<About>
+    {
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HotelierProject.BusinessLayer.Abstract;
+using HotelierProject.DataAccessLayer.Migrations;
 using HotelierProject.DtoLayer.RoomDtos;
 using HotelierProject.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -72,6 +73,13 @@ namespace HotelierProject.WebApi.Controllers
         public async Task<IActionResult> GetRoom(int id)
         {
             return Ok(_mapper.Map<GetRoomDto>(await _roomService.TGetByID(id)));
+        }
+
+        [HttpGet("TakeFirstThreeRooms")]
+
+        public async Task<IActionResult> TakeFirstThreeRooms()
+        {
+            return Ok(_mapper.Map<List<ResultRoomDto>>(await _roomService.TTakeFirstThreeRooms()));
         }
     }
 }
