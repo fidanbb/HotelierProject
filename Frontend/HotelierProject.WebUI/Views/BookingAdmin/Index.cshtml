@@ -3,7 +3,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
     int count = 0;
-    var statuses = new List<string> { "Waiting for Approval", "Approved", "Customer Will Be Called", "Canceled" };
+    var Statusclass=" ";
 }
 
 <div class="table-responsive">
@@ -26,6 +26,11 @@
         <tbody>
             @foreach (var item in Model)
             {
+                @if (item.Status == "Waiting for Approval") { Statusclass = "badge-info"; }
+                @if (item.Status == "Customer Will Be Called") { Statusclass = "badge-warning"; }
+                @if (item.Status == "Approved") { Statusclass = "badge-success"; }
+                @if (item.Status == "Canceled") { Statusclass = "badge-danger"; }
+                
                 count++;
                 <tr>
                     <th>@count</th>
@@ -33,8 +38,9 @@
                     <td>@(((DateTime)item.Checkin).ToString("dd-MMM-yyyy"))</td>
                     <td>@(((DateTime)item.CheckOut).ToString("dd-MMM-yyyy"))</td>
                     <td>
-                        <span style="padding-top:1em; padding-bottom:1em;font-size:12px" 
-                        class="badge badge-primary px-2">@item.Status</span></td>
+                        <span style="padding-top:1em; padding-bottom:1em;font-size:12px"
+                              class="badge @Statusclass  px-2">@item.Status</span>
+                    </td>
                     <td><a href="/BookingAdmin/ApprovedReservation/@item.BookingID" class="btn btn-outline-primary">Approve</a></td>
                     <td><a href="/BookingAdmin/CancelReservation/@item.BookingID" class="btn btn-outline-danger">Cancel</a></td>
                     <td><a href="/BookingAdmin/WaitReservation/@item.BookingID" class="btn btn-outline-warning">Wait</a></td>
