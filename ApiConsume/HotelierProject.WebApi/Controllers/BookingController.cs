@@ -73,5 +73,31 @@ namespace HotelierProject.WebApi.Controllers
         {
             return Ok(_mapper.Map<GetBookingDto>(await _bookingService.TGetByID(id)));
         }
+
+        [HttpGet("Last6Booking")]
+        public async Task<IActionResult> Last6Booking()
+        {     
+            return Ok(_mapper.Map<List<ResultLast6BookingDto>>(await _bookingService.TLast6Bookings()));
+        }
+
+        [HttpGet("BookingAproved")]
+        public async Task<IActionResult> BookingAproved(int id)
+        {
+           await _bookingService.TBookingStatusChangeApproved(id);
+            return Ok("Booking Status changed to Approved");
+        }
+
+        [HttpGet("BookingCancel")]
+        public async Task<IActionResult> BookingCancel(int id)
+        {
+          await  _bookingService.TBookingStatusChangeCancel(id);
+            return Ok("Booking Status changed to Canceled");
+        }
+        [HttpGet("BookingWait")]
+        public async Task<IActionResult> BookingWait(int id)
+        {
+          await  _bookingService.TBookingStatusChangeWait(id);
+            return Ok("Booking Status changed to Customer Will Be Called");
+        }
     }
 }

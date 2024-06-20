@@ -18,9 +18,29 @@ namespace HotelierProject.BusinessLayer.Concrete
             _bookingDal = bookingDal;
         }
 
+        public async Task TBookingStatusChangeApproved(int id)
+        {
+            await _bookingDal.BookingStatusChangeApproved(id);
+        }
+
+        public async Task TBookingStatusChangeCancel(int id)
+        {
+            await _bookingDal.BookingStatusChangeCancel(id);
+        }
+
+        public async Task TBookingStatusChangeWait(int id)
+        {
+            await _bookingDal.BookingStatusChangeWait(id);
+        }
+
         public async Task TDelete(Booking t)
         {
             await _bookingDal.Delete(t);
+        }
+
+        public async Task<int> TGetBookingCount()
+        {
+          return await _bookingDal.GetBookingCount();
         }
 
         public async Task<Booking> TGetByID(int id)
@@ -36,6 +56,11 @@ namespace HotelierProject.BusinessLayer.Concrete
         public async Task TInsert(Booking t)
         {
             await _bookingDal.Insert(t);
+        }
+
+        public async Task<List<Booking>> TLast6Bookings()
+        {
+           return await _bookingDal.Last6Bookings();
         }
 
         public async Task TUpdate(Booking t)

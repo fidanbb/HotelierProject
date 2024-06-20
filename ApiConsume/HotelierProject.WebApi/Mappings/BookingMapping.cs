@@ -13,6 +13,7 @@ namespace HotelierProject.WebApi.Mappings
            CreateMap<Booking,CreateBookingDto>().ReverseMap();
            CreateMap<Booking,UpdateBookingDto>().ReverseMap();
            CreateMap<Booking,GetBookingDto>().ReverseMap();
+           CreateMap<Booking,ResultLast6BookingDto>().ReverseMap();
         }
     }
 }

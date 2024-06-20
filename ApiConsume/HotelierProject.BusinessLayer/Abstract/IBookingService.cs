@@ -9,5 +9,10 @@ namespace HotelierProject.BusinessLayer.Abstract
 {
     public interface IBookingService:IGenericService<Booking>
     {
+        Task TBookingStatusChangeApproved(int id);
+        Task<int> TGetBookingCount();
+        Task<List<Booking>> TLast6Bookings();
+        Task TBookingStatusChangeCancel(int id);
+        Task TBookingStatusChangeWait(int id);
     }
 }
