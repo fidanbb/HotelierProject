@@ -51,6 +51,7 @@ namespace HotelierProject.WebUI.Controllers
                 {
                     return RedirectToAction("Index");
                 }
+                return View();
             }
           
             return View();
@@ -95,6 +96,7 @@ namespace HotelierProject.WebUI.Controllers
                 {
                     return RedirectToAction("Index");
                 }
+                return View();
             }
 
             return View();

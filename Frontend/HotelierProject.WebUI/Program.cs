@@ -1,10 +1,16 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using HotelierProject.DataAccessLayer.Concrete;
 using HotelierProject.EntityLayer.Concrete;
+using HotelierProject.WebUI.Dtos.GuestDtos;
+using HotelierProject.WebUI.ValidationRules.GuestValidationRules;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IValidator<CreateGuestDto>, CreateGuestValidator>();
+builder.Services.AddTransient<IValidator<UpdateGuestDto>, UpdateGuestValidator>();
+builder.Services.AddControllersWithViews().AddFluentValidation();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>();	
 builder.Services.AddHttpClient();
