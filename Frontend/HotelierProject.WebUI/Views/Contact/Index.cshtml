@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+@await Component.InvokeAsync("_ContactCoverComponentPartial")
+
+
+@await Html.PartialAsync("/Views/Contact/SendMessage.cshtml")
+

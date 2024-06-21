@@ -24,6 +24,8 @@ namespace HotelierProject.DataAccessLayer.Concrete
         public DbSet<Subscribe> Subscribes { get; set; }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Guest> Guests { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
     }
 }
