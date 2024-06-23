@@ -1,4 +1,5 @@
 ﻿using HotelierProject.WebUI.Dtos.SubscribeDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http;
@@ -6,6 +7,7 @@ using System.Text;
 
 namespace HotelierProject.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
