@@ -20,15 +20,20 @@ namespace HotelierProject.WebUI.Controllers
 
             var responseMessage = await client.GetAsync("http://localhost:5073/api/Contact");
 
+            var responseMessage2 = await client.GetAsync("http://localhost:5073/api/Contact/GetContactCount");
+
+            var responseMessage3 = await client.GetAsync("http://localhost:5073/api/SendMessage/GetSendMessageCount");
+
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-
                 var values = JsonConvert.DeserializeObject<List<ResultContactDto>>(jsonData);
-
+                var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
+                ViewBag.contactCount = jsonData2;
+                var jsonData3 = await responseMessage3.Content.ReadAsStringAsync();
+                ViewBag.sendMessageCount = jsonData3;
                 return View(values);
             }
-
             return View();
         }
         public PartialViewResult SideBarAdminContactPartial()

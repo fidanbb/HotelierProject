@@ -69,6 +69,12 @@ namespace HotelierProject.WebApi.Controllers
             return Ok(_mapper.Map<GetContactDto>(await _contactService.TGetByID(id)));
         }
 
-      
+        [HttpGet("GetContactCount")]
+
+        public async Task<IActionResult> GetContactCount()
+        {
+            return Ok(await _contactService.TGetCountCount());
+        }
+
     }
 }

@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelierProject.DataAccessLayer.Abstract
+namespace HotelierProject.BusinessLayer.Abstract
 {
-    public interface ISendMessageDal:IGenericDal<SendMessage>
+    public interface IMessageCategoryService:IGenericService<MessageCategory>
     {
-        Task<int> GetSendMessageCount();
     }
 }

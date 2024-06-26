@@ -2,7 +2,6 @@
 using HotelierProject.DataAccessLayer.Concrete;
 using HotelierProject.DataAccessLayer.Repositories;
 using HotelierProject.EntityLayer.Concrete;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +10,10 @@ using System.Threading.Tasks;
 
 namespace HotelierProject.DataAccessLayer.EntityFramework
 {
-    public class EfSendMessageDal : GenericRepository<SendMessage>, ISendMessageDal
+    public class EfMessageCategoryDal : GenericRepository<MessageCategory>, IMessageCategoryDal
     {
-        public EfSendMessageDal(Context context) : base(context)
+        public EfMessageCategoryDal(Context context) : base(context)
         {
-        }
-
-        public async Task<int> GetSendMessageCount()
-        {
-            var context=new Context();
-            return await context.SendMessages.CountAsync();
         }
     }
 }

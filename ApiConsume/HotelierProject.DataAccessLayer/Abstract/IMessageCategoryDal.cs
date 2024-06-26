@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace HotelierProject.DataAccessLayer.Abstract
 {
-    public interface ISendMessageDal:IGenericDal<SendMessage>
+    public interface IMessageCategoryDal:IGenericDal<MessageCategory>
     {
-        Task<int> GetSendMessageCount();
     }
 }

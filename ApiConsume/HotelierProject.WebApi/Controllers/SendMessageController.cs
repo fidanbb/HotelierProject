@@ -64,5 +64,12 @@ namespace HotelierProject.WebApi.Controllers
         {
             return Ok(_mapper.Map<GetSendMessageDto>(await _sendMessageService.TGetByID(id)));
         }
+
+        [HttpGet("GetSendMessageCount")]
+
+        public async Task<IActionResult> GetSendMessageCount()
+        {
+            return Ok(await _sendMessageService.TGetSendMessageCount());
+        }
     }
 }

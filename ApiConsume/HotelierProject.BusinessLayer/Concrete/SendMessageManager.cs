@@ -33,6 +33,11 @@ namespace HotelierProject.BusinessLayer.Concrete
             return await _sendMessageDal.GetList();
         }
 
+        public async Task<int> TGetSendMessageCount()
+        {
+           return await _sendMessageDal.GetSendMessageCount();
+        }
+
         public async Task TInsert(SendMessage t)
         {
             await _sendMessageDal.Insert(t);

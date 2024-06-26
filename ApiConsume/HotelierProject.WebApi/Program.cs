@@ -61,6 +61,9 @@ builder.Services.AddScoped<IGuestService, GuestManager>();
 builder.Services.AddScoped<ISendMessageDal, EfSendMessageDal>();
 builder.Services.AddScoped<ISendMessageService, SendMessageManager>();
 
+builder.Services.AddScoped<IMessageCategoryDal, EfMessageCategoryDal>();
+builder.Services.AddScoped<IMessageCategoryService, MessageCategoryManager>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
