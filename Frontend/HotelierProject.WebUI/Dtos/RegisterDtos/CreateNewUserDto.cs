@@ -22,6 +22,9 @@ namespace HotelierProject.WebUI.Dtos.RegisterDtos
         [Required(ErrorMessage = "Confirm Password field is important")]
         [Compare("Password", ErrorMessage = "Password and COnfirm Password must be same")]
         public string ConfirmPassword { get; set; }
+
+
+        public int WorkLocationID { get; set; }
     }
 }
 

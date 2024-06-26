@@ -3,6 +3,7 @@ using HotelierProject.BusinessLayer.Concrete;
 using HotelierProject.DataAccessLayer.Abstract;
 using HotelierProject.DataAccessLayer.Concrete;
 using HotelierProject.DataAccessLayer.EntityFramework;
+using HotelierProject.EntityLayer.Concrete;
 using System.Reflection;
 
 
@@ -22,7 +23,8 @@ builder.Services.AddCors(opt =>
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -63,6 +65,12 @@ builder.Services.AddScoped<ISendMessageService, SendMessageManager>();
 
 builder.Services.AddScoped<IMessageCategoryDal, EfMessageCategoryDal>();
 builder.Services.AddScoped<IMessageCategoryService, MessageCategoryManager>();
+
+builder.Services.AddScoped<IWorkLocationDal, EfWorkLocationDal>();
+builder.Services.AddScoped<IWorkLocationService, WorkLocationManager>();
+
+builder.Services.AddScoped<IAppUserDal, EfAppUserDal>();
+builder.Services.AddScoped<IAppUserService, AppUserManager>();
 
 var app = builder.Build();
 
