@@ -33,12 +33,22 @@ namespace HotelierProject.BusinessLayer.Concrete
 		   return await _staffDal.GetList();
 		}
 
-		public async Task TInsert(Staff t)
+        public async Task<int> TGetStaffCount()
+        {
+          return await _staffDal.GetStaffCount();
+        }
+
+        public async Task TInsert(Staff t)
 		{
 		  await _staffDal.Insert(t);	
 		}
 
-		public async Task TUpdate(Staff t)
+        public async Task<List<Staff>> TLast4Staff()
+        {
+           return await _staffDal.Last4Staff();
+        }
+
+        public async Task TUpdate(Staff t)
 		{
 			await _staffDal.Update(t);
 		}

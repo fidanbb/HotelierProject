@@ -9,6 +9,7 @@ namespace HotelierProject.DataAccessLayer.Abstract
 {
 	public interface IRoomDal:IGenericDal<Room>
 	{
-		Task<List<Room>> TakeFirstThreeRooms();
+        Task<int> RoomCount();
+        Task<List<Room>> TakeFirstThreeRooms();
 	}
 }

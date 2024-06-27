@@ -10,5 +10,6 @@ namespace HotelierProject.BusinessLayer.Abstract
 	public interface IRoomService:IGenericService<Room>
 	{
         Task<List<Room>> TTakeFirstThreeRooms();
+        Task<int> TRoomCount();
     }
 }

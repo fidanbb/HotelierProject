@@ -18,7 +18,7 @@ namespace HotelierProject.BusinessLayer.Concrete
             _appUserDal = appUserDal;
         }
 
-        public async Task<int> AppUserCount()
+        public async Task<int> TAppUserCount()
         {
             return await _appUserDal.AppUserCount();
         }

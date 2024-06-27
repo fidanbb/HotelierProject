@@ -12,6 +12,13 @@ namespace HotelierProject.DataAccessLayer.EntityFramework
 		{
 		}
 
+        public async Task<int> RoomCount()
+        {
+            using var context = new Context();
+
+            return await context.Rooms.CountAsync();
+        }
+
         public async Task<List<Room>> TakeFirstThreeRooms()
         {
             using var context = new Context();

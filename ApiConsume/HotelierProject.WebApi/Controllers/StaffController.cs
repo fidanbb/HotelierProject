@@ -72,5 +72,12 @@ namespace HotelierProject.WebApi.Controllers
         {
             return Ok(_mapper.Map<GetStaffDto>(await _staffService.TGetByID(id)));
         }
+
+        [HttpGet("Last4Staff")]
+        public async Task<IActionResult> Last4Staff()
+        {
+            var values = _mapper.Map<List<ResultStaffDto>>(await _staffService.TGetList());
+            return Ok(values);
+        }
     }
 }

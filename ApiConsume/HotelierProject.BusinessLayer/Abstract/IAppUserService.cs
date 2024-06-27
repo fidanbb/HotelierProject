@@ -10,6 +10,6 @@ namespace HotelierProject.BusinessLayer.Abstract
     public interface IAppUserService:IGenericService<AppUser>
     {
         Task<List<AppUser>> TUserListWithWorkLocations();
-        Task<int> AppUserCount();
+        Task<int> TAppUserCount();
     }
 }

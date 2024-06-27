@@ -9,5 +9,7 @@ namespace HotelierProject.BusinessLayer.Abstract
 {
 	public interface IStaffService:IGenericService<Staff>
 	{
-	}
+        Task<int> TGetStaffCount();
+        Task<List<Staff>> TLast4Staff();
+    }
 }

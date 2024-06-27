@@ -8,7 +8,7 @@
 <html lang="en">
 
 @await Html.PartialAsync("/Views/AdminLayout/HeadPartial.cshtml")
-
+@RenderSection("css", required: false)
 <body>
 
 
@@ -43,7 +43,7 @@
      
     @await Html.PartialAsync("/Views/AdminLayout/FooterPartial.cshtml")
     @await Html.PartialAsync("/Views/AdminLayout/ScriptPartial.cshtml")
-     
+    @RenderSection("script", required: false)
    
   
 
