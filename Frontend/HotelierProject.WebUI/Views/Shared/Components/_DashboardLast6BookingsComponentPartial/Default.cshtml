@@ -10,8 +10,8 @@
                             <thead>
                                 <tr>
                                     <th>Customer</th>
-                                    <th>Cuity</th>
-                                    <th>Country</th>
+                                    <th>CheckIn</th>
+                                    <th>CheckOut</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -20,9 +20,9 @@
                                 {
                                     <tr>
                                         <td>@item.Name</td>
-                                        <td>@item.City</td>
+                                        <td>@item.Checkin.ToString("dd/MM/yyyy")</td>
                                         <td>
-                                            <span>@item.Country</span>
+                                            @item.CheckOut.ToString("dd/MM/yyyy")
                                         </td>
                                         @if (item.Status == "Approved")
                                         {

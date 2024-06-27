@@ -12,15 +12,18 @@ namespace HotelierProject.WebApi.Controllers
         private readonly IBookingService _bookingService;
         private readonly IAppUserService _appUserService;
         private readonly IRoomService _roomService;
-        public DashboardWidgetsController(IStaffService staffService, 
-                                          IBookingService bookingService, 
-                                          IAppUserService appUserService, 
-                                          IRoomService roomService)
+        private readonly IGuestService _guestService;
+        public DashboardWidgetsController(IStaffService staffService,
+                                          IBookingService bookingService,
+                                          IAppUserService appUserService,
+                                          IRoomService roomService,
+                                          IGuestService guestService)
         {
             _staffService = staffService;
             _bookingService = bookingService;
             _appUserService = appUserService;
             _roomService = roomService;
+            _guestService = guestService;
         }
 
         [HttpGet("StaffCount")]
@@ -41,6 +44,13 @@ namespace HotelierProject.WebApi.Controllers
         public async Task<IActionResult> AppUserCount()
         {
             var value = await _appUserService.TAppUserCount();
+            return Ok(value);
+        }
+
+        [HttpGet("GuestCount")]
+        public async Task<IActionResult> GuestCount()
+        {
+            var value = await _guestService.TGetGuestCount();
             return Ok(value);
         }
 

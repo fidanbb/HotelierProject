@@ -9,5 +9,6 @@ namespace HotelierProject.DataAccessLayer.Abstract
 {
     public interface IGuestDal:IGenericDal<Guest>
     {
+        Task<int> GetGuestCount();
     }
 }

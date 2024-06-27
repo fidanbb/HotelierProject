@@ -22,9 +22,9 @@ namespace HotelierProject.WebUI.ViewComponents.Dashboard
             ViewBag.bookingCount = jsonData2;
 
 
-            var responseMessage3 = await client.GetAsync("http://localhost:5073/api/DashboardWidgets/AppUserCount");
+            var responseMessage3 = await client.GetAsync("http://localhost:5073/api/DashboardWidgets/GuestCount");
             var jsonData3 = await responseMessage3.Content.ReadAsStringAsync();
-            ViewBag.appUserCount = jsonData3;
+            ViewBag.guestCount = jsonData3;
 
 
             var responseMessage4 = await client.GetAsync("http://localhost:5073/api/DashboardWidgets/RoomCount");
